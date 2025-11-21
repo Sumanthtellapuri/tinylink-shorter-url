@@ -1,0 +1,2 @@
+This file created by assistant to record changes. Not meant to be committed.
+Change: Added console.log to DELETE handler to print code and result.rowCount for debugging.

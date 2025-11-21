@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Link Stats</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <div class="container card">
+    <a class="back-link" href="/">← Back</a>
+    <h1>Link Stats</h1>
+
+    <div id="content">Loading…</div>
+  </div>
+
+<script>
+(function () {
+  const code = location.pathname.split('/').pop();
+
+  async function load() {
+    try {
+      const res = await fetch('/api/links/' + code);
+      const content = document.getElementById('content');
+
+      if (res.status === 404) {
+        content.innerHTML = `<p class="error">Code not found.</p>`;
+        return;
+      }
+
+      if (!res.ok) {
+        content.innerHTML = `<p class="error">Server error.</p>`;
+        return;
+      }
+
+      const j = await res.json();
+
+      const fixDate = (d) => d ? new Date(d.replace(' ', 'T')).toLocaleString() : 'Never';
+
+      content.innerHTML = `
+        <div class="stats-box">
+          <p><strong>Code:</strong> ${j.code}</p>
+          <p><strong>Target URL:</strong> 
+            <a href="${j.url}" target="_blank">${j.url}</a>
+          </p>
+          <p><strong>Total Clicks:</strong> ${j.clicks}</p>
+          <p><strong>Created At:</strong> ${fixDate(j.created_at)}</p>
+          <p><strong>Last Clicked:</strong> ${fixDate(j.last_clicked)}</p>
+          <p><a class="go-link" href="/${j.code}" target="_blank">Open Redirect →</a></p>
+        </div>
+      `;
+    } catch (err) {
+      document.getElementById('content').innerHTML = `<p>Error loading stats.</p>`;
+    }
+  }
+
+  load();
+})();
+</script>
+
+</body>
+</html>

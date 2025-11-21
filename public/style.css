@@ -1,0 +1,98 @@
+body { font-family: Arial; padding: 20px; }
+input, button { margin: 5px 0; padding: 8px; }
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+td, th { border: 1px solid #ccc; padding: 8px; }
+body {
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  background: #f4f6f9;
+  margin: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 10px;
+}
+
+.title {
+  text-align: center;
+  font-size: 32px;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+input, button {
+  padding: 12px;
+  margin: 6px 0;
+  width: 100%;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #dcdcdc;
+}
+
+button {
+  background: #2563eb;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1e4fd3;
+}
+
+.search {
+  margin-bottom: 15px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td, th {
+  padding: 10px;
+  border-bottom: 1px solid #ececec;
+}
+
+a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.message {
+  color: green;
+  margin-top: 5px;
+}
+
+.error {
+  color: red;
+}
+
+.back-link {
+  color: #2563eb;
+}
+
+.stats-box p {
+  margin: 8px 0;
+}
+
+.go-link {
+  font-weight: bold;
+}
+.truncate {
+  max-width: 280px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
